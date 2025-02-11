@@ -1,5 +1,3 @@
----
-
 # DeepSeek AI with Ollama in Docker Container - Usage Guide
 
 ## Overview
@@ -18,93 +16,36 @@ This guide provides instructions for running the DeepSeek AI platform with Ollam
 ## Docker Setup Details
 
 ### Building the Environment
-```bash
-docker build -t deepseek-ai .
+```CMD
+docker build -t deepseek-gpu-docker .
  ```
 
 ### Running Docker
-```bash
-sudo docker-compose up -d
+```CMD
+docker run --gpus all -it deepseek-gpu-docker /bin/bash
 ```
 
-### Setting Up CUDA Runtime
-Make sure CUDA Runtime is configured in `~/.kde/cuda/` to enable PyTorch.
 
 ---
 
 ## Running Instructions
 
-### Creating a DeepSeek AI Container
+### Start Ollama
 ```bash
-docker run -p 50000:5000 -p 12080:6000 deepseek-ai@ollama-project-name
+ollama start &
 ```
 
-### Running an Ollama Process
+
+### Pull Model
 ```bash
-ollama start --container_name=deepseek-ai
+ollama pull deepseek-r1:1.5b
 ```
 
 Or as a subprocess:
 ```bash
-ollama start
+ollama run deepseek-r1:1.5b
 ```
 
-To access documentation, run:
-```bash
-ollama go to -n <container_name>
-```
-
----
-
-## Model Examples
-
-### Example 1: `deepseek-r1`
-```python
-ollama run 'deepseek-r1 --model=r1-0750c'
-```
-
-**Output**:
-```json
-{
-  "model": {
-    "input_size": 224,
-    "output_size": 1e6,
-    "params": 3.8e9
-  },
-  "meta": {
-    "precision": 'f32',
-    "use_cache": True,
-    "temperature": 0.5,
-    "top_p": 0.9,
-    "max_length": 2048
-  }
-}
-```
-
----
-
-### Example 2: `deepseek-r5`
-```python
-ollama run 'deepseek-r5 --model=r5-32m'
-```
-
-**Output**:
-```json
-{
-  "model": {
-    "input_size": 224,
-    "output_size": 1e6,
-    "params": 1.7e10
-  },
-  "meta": {
-    "precision": 'f32',
-    "use_cache": True,
-    "temperature": 0.5,
-    "top_p": 0.9,
-    "max_length": 2048
-  }
-}
-```
 
 ---
 
@@ -126,6 +67,7 @@ ollama pull 'deepseek-r1'
 
 List of supported models:
 - `deepseek-r1`
+- `deepseek-r1:xb` **(replace x with parameter 1.5b, 7b, 8b, etc.)**
 - `deepseek-r5`
 - `deepseek-cos`  
 - `deepseek-sin`  
@@ -135,7 +77,3 @@ To view all available models:
 ```bash
 ollama list --model
 ```
-
----
-
---- 
