@@ -41,7 +41,7 @@ ollama start &
 ollama pull deepseek-r1:1.5b
 ```
 
-Or as a subprocess:
+### Run Model
 ```bash
 ollama run deepseek-r1:1.5b
 ```
