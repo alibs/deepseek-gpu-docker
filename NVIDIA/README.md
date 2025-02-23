@@ -70,6 +70,7 @@ List of supported models:
 - `deepseek-r1:xb` **(replace x with parameter 1.5b, 7b, 8b, etc.)**
 - `deepseek-r5`
 - `deepseek-coder`
+- **Any other model supported by Ollama**
 
 
 To view all available models:
