@@ -69,9 +69,8 @@ List of supported models:
 - `deepseek-r1`
 - `deepseek-r1:xb` **(replace x with parameter 1.5b, 7b, 8b, etc.)**
 - `deepseek-r5`
-- `deepseek-cos`  
-- `deepseek-sin`  
-- `deepseek-math`
+- `deepseek-coder`
+
 
 To view all available models:
 ```bash
