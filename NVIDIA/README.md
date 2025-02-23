@@ -75,5 +75,5 @@ List of supported models:
 
 To view all available models:
 ```bash
-ollama list --model
+ollama list
 ```
